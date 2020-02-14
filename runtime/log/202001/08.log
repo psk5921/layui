@@ -1,0 +1,361 @@
+---------------------------------------------------------------
+[ 2020-01-08T15:15:15+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：1.476568s][吞吐率：0.68req/s] [内存消耗：3,415.36kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.129773s ] mysql:dbname=db_travelOrder;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.053342s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578294915 ) AND `order`.`delete_time` IS NULL [ RunTime:0.055013s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.053931s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.053719s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = null  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.052693s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = null  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.056192s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:15:16+08:00 ] 127.0.0.1 127.0.0.1 GET /favicon.ico
+[ info ] travel.com/favicon.ico [运行时间：0.174205s][吞吐率：5.74req/s] [内存消耗：1,854.86kb] [文件加载：40]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'favicon.ico',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://travel.com/v1/testOrder',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/favicon_ico' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-01-08T15:15:37+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.439389s][吞吐率：2.28req/s] [内存消耗：3,415.70kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.077144s ] mysql:dbname=db_travelOrder;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.051353s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578294937 ) AND `order`.`delete_time` IS NULL [ RunTime:0.054946s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.051752s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.051954s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = null  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.051615s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = null  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.051090s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:16:29+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.392776s][吞吐率：2.55req/s] [内存消耗：3,416.41kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.063101s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.041381s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578294988 ) AND `order`.`delete_time` IS NULL [ RunTime:0.042819s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.043799s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.041679s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.041709s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.041830s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:18:11+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.419378s][吞吐率：2.38req/s] [内存消耗：3,416.41kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.069705s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.060384s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578295091 ) AND `order`.`delete_time` IS NULL [ RunTime:0.042425s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.041353s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.040301s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.040157s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.038912s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:19:02+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.390363s][吞吐率：2.56req/s] [内存消耗：3,416.41kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.065169s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.043282s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578295141 ) AND `order`.`delete_time` IS NULL [ RunTime:0.044220s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.042679s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.042729s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.043360s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.041934s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:19:17+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.466232s][吞吐率：2.14req/s] [内存消耗：3,416.41kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.081206s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.054100s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578295157 ) AND `order`.`delete_time` IS NULL [ RunTime:0.054941s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.055367s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.054265s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.054255s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.053623s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:21:23+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.446868s][吞吐率：2.24req/s] [内存消耗：3,527.55kb] [文件加载：61]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.063530s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.041943s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578295282 ) AND `order`.`delete_time` IS NULL [ RunTime:0.043616s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.042514s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.042829s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.042383s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.041837s ]
+[ error ] [2]Illegal string offset 'state'[F:\phpstudy_pro\WWW\travel_order\thinkphp\library\think\Model.php:364]
+---------------------------------------------------------------
+[ 2020-01-08T15:23:13+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.527470s][吞吐率：1.90req/s] [内存消耗：3,509.22kb] [文件加载：60]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.066708s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.043691s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578295393 ) AND `order`.`delete_time` IS NULL [ RunTime:0.056617s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.043989s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.044110s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.042136s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.041316s ]
+[ sql ] [ SQL ] UPDATE `travel_date`  SET `state`=2,`update_time`=1578468193  WHERE  `travel_date_id` = 174  AND `state` IN (1,11) [ RunTime:0.046496s ]
+---------------------------------------------------------------
+[ 2020-01-08T15:23:16+08:00 ] 127.0.0.1 127.0.0.1 GET /v1/testOrder
+[ info ] travel.com/v1/testOrder [运行时间：0.379482s][吞吐率：2.64req/s] [内存消耗：3,416.41kb] [文件加载：57]
+[ info ] [ LANG ] F:\phpstudy_pro\WWW\travel_order\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'OrderPay',
+    2 => 'testOrder',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'travel.com',
+)
+[ info ] [ PARAM ] array (
+  '/v1/testOrder' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\OrderPay->testOrder[ F:\phpstudy_pro\WWW\travel_order\application\index\controller\OrderPay.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.061380s ] mysql:dbname=db_traveOrder_dev;host=101.132.180.215;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.041420s ]
+[ sql ] [ SQL ] UPDATE `order`  SET `order_state`=3  WHERE (  `order_state` IN (1,2,10)  AND `create_time` <= 1578295395 ) AND `order`.`delete_time` IS NULL [ RunTime:0.042270s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE (  `order_number` = '2020010859910167' ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.042288s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `travel_date` [ RunTime:0.041693s ]
+[ sql ] [ SQL ] SELECT * FROM `travel_date` WHERE (  `travel_date_id` = 174  AND `state` IN (1,11) ) AND `travel_date`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.042160s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE (  `travel_date_id` = 174  AND `order_state` IN (30,40) ) AND `order`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.040915s ]

@@ -1,0 +1,144 @@
+{include file='common/head' title="后台管理系统" keywords="后台管理系统"}
+<body class="layui-layout-body kit-layout-admin" >
+<div id="progress">
+    <span></span>
+</div>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">{$web_info['web_title']|default='Vowkin管理系统'}</div>
+        <ul class="layui-nav layui-layout-right" lay-filter="kitNavbar" kit-navbar>
+            <li class="layui-nav-item" >
+                <a href="javascript:;">
+                    欢迎回来：{$username|default="vowkin"}
+                </a>
+            </li>
+            <li class="layui-nav-item"><a href="{:url('Login/loginOut')}">退出</a></li>
+        </ul>
+
+    </div>
+    <!--导航-->
+    <div class="layui-side layui-bg-black kit-side">
+        <div class="layui-side-scroll">
+            <div class="kit-side-fold"><i class="fa fa-navicon layui-icon" style="color: #009688;" aria-hidden="true">&#xe65f;</i></div>
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
+                {foreach $menu as $menuInfo}
+                <li class="layui-nav-item">
+                    <a class="parentMenu" href="javascript:;"><i class="layui-icon {$menuInfo['iconfont']}" aria-hidden="true"></i><span style="padding-left: .4rem">{$menuInfo['name']}</span></a>
+                    <dl class="layui-nav-child">
+                        <!--&#xe602;-->
+                        {foreach $menuInfo['child'] as $menuChild}
+                        <dd>
+                            <a  href="javascript:;" data-url="{$menuChild['url']}" data-icon="fa-user" data-title="{$menuChild['name']}" kit-target data-id='{$menuChild.id}'><i class="layui-icon">{$menuChild['iconfont']}</i><span style="padding-left: .4rem" >{$menuChild['name']}</span></a>
+                        </dd>
+                        {/foreach}
+                    </dl>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body" id="container">
+        <!-- 内容主体区域 -->
+        <!--<div>主体内容加载中,请稍等...</div>-->
+        <div style="text-align: center"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop" style="font-size: 30px; color: #1E9FFF;"></i>  数据加载中，请稍后...</div>
+    </div>
+    <div class="layui-footer">
+        <div class="layui-row">
+            <div class="layui-col-md6" style="text-align: left">
+                2020 © Power by <a href="http://www.vowkin.com" target="_blank">Vowkin Solution</a>
+            </div>
+            <div class="layui-col-md6" style="text-align: right">
+                {$web_info['copy_right']|default='Ver 3.01'}
+            </div>
+
+        </div>
+    </div>
+    {include file='common/footer'}
+<script>
+    function playMusic() {
+        var player = $("#player")[0]; /*jquery对象转换成js对象*/
+        if (player.paused){ /*如果已经暂停*/
+            player.play(); /*播放*/
+        }else {
+            player.pause();/*暂停*/
+        }
+    }
+
+
+
+
+    $(function () {
+        $('.layui-nav-item').on('click',function () {
+            $(this).siblings().removeClass('layui-nav-itemed');
+        })
+
+        var is_login_expire = setInterval(function () {
+            $.ajax({
+                type: "post",
+                url: "{:url('is_expire')}",
+                dataType: "json",
+                data:'',
+                success: function(data, textStatus, request){
+                    //用户信息失效
+                    if( data.code == 1){
+                        if(data.data.status == 1){
+                            clearInterval(is_login_expire);
+                            location.href = "{:url('login/index')}"
+                        }
+                    }
+                    if(data.code == 20006){
+                        clearInterval(is_login_expire);
+                        xadmin.close();
+                        location.reload();
+                        parent.parent.location.href = "{:url('login/index')}";
+                    }
+                }
+            });
+        },3600000) //每小时执行一次
+      /*  //刷新当前页
+        setInterval(function () {
+            $.get("{:url('Base/checkLoginTime')}",function (res) {
+                if(res){
+                    window.location.reload()
+                }
+            },"JSON")
+        },5000)*/
+
+    })
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    var message;
+    layui.config({
+        base: '/static/admin/build/js/'
+    }).use(['app'], function() {
+        var app = layui.app,
+            $ = layui.jquery,
+            layer = layui.layer;
+        //将message设置为全局以便子页面调用
+        message = layui.message;
+        //主入口
+        app.set({
+            url:'{:url("Index/table")}',
+            type: 'iframe'
+        }).init();
+    });
+    $('.clear_Cache').click(function () {
+        $.ajax({
+            url:'{:url("Index/ApiClearCache")}',
+            type:'get',
+            dataType:'json',
+            success:function(val){
+                if(val.code ==200){
+                    location.reload();
+                }
+            }
+    })
+
+    });
+</script>
+</body>
+</html>
+
