@@ -36,51 +36,17 @@ class Base extends Controller
             if (session('expire', '', 'login') < time()) {
                 //过期 判断请求是不是ajax请求 给与相关的响应
                 if (request()->isAjax()) {
-                    session(null, 'login');
-                    exit(json_encode(diy_json('', $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[0], $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[1]), JSON_UNESCAPED_UNICODE));
+                    AjaxJumpLogin( $diyCodeConstant);
                 } else {
-                    session(null, 'login');
-                    $url = url('login/index');
-                    $str = "<script src=\"/static/admin/layui/layui.js\" charset=\"utf-8\"></script>
-<script src=\"/static/admin/js/xadmin.js\" charset=\"utf-8\"></script>
-<script>
-try{
-xadmin.close();
-location.reload();
-parent.parent.location.href = '" . $url . "';
-}catch (e) {
-  parent.location.href = '" . $url . "';
-}
-
-</script>
-";
-                    echo $str;
-                    die;
+                    CommonJumpLogin();
                     //$this->redirect('login/index'); //重定向到登录页面
                 }
             }
         } else {
             if (request()->isAjax()) {
-                session(null, 'login');
-                exit(json_encode(diy_json('', $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[0], $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[1]), JSON_UNESCAPED_UNICODE));
+                AjaxJumpLogin( $diyCodeConstant);
             } else {
-                session(null, 'login');
-                $url = url('login/index');
-                $str = "<script src=\"/static/admin/layui/layui.js\" charset=\"utf-8\"></script>
-<script src=\"/static/admin/js/xadmin.js\" charset=\"utf-8\"></script>
-<script>
-try{
-xadmin.close();
-location.reload();
-parent.parent.location.href = '" . $url . "';
-}catch (e) {
-  parent.location.href = '" . $url . "';
-}
-
-</script>
-";
-                echo $str;
-                die;
+                CommonJumpLogin();
                 /*echo "<script>parent.parent.location.href = \"{:url('login/index')}\"</script>";die;*/
                 //$this->redirect('login/index'); //重定向到登录页面
             }
