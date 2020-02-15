@@ -687,3 +687,16 @@ if(!function_exists('obj_to_array')){
         return  json_decode(json_encode($obj),true);
     }
 }
+
+if(!function_exists('JumpLogin')){
+    function JumpLogin() {
+        session('null','login');
+        $url = url('login/index');
+        $str = "<script>
+document.title = '跳转提示信息';
+   document.write('无权限操作,即将跳转到登录页面');
+    setTimeout(function() {
+    location.href = '" . $url . "'},2000)</script>";
+        die($str);
+    }
+}

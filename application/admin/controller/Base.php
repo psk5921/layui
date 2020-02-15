@@ -5,7 +5,6 @@ namespace app\admin\controller;
 use  app\constant\AdminConstant;
 use app\logic\admin\PermLogic;
 use  think\Controller;
-use  think\Db;
 
 /**
  * 基类验证登录信息以及权限控制
@@ -37,8 +36,10 @@ class Base extends Controller
             if (session('expire', '', 'login') < time()) {
                 //过期 判断请求是不是ajax请求 给与相关的响应
                 if (request()->isAjax()) {
+                    session(null, 'login');
                     exit(json_encode(diy_json('', $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[0], $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[1]), JSON_UNESCAPED_UNICODE));
                 } else {
+                    session(null, 'login');
                     $url = url('login/index');
                     $str = "<script src=\"/static/admin/layui/layui.js\" charset=\"utf-8\"></script>
 <script src=\"/static/admin/js/xadmin.js\" charset=\"utf-8\"></script>
@@ -60,8 +61,10 @@ parent.parent.location.href = '" . $url . "';
             }
         } else {
             if (request()->isAjax()) {
+                session(null, 'login');
                 exit(json_encode(diy_json('', $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[0], $diyCodeConstant::LOGIN_USER_INFO_EXPIRED[1]), JSON_UNESCAPED_UNICODE));
             } else {
+                session(null, 'login');
                 $url = url('login/index');
                 $str = "<script src=\"/static/admin/layui/layui.js\" charset=\"utf-8\"></script>
 <script src=\"/static/admin/js/xadmin.js\" charset=\"utf-8\"></script>
@@ -96,18 +99,16 @@ parent.parent.location.href = '" . $url . "';
         $controller = strtolower(request()->controller());
         $action = strtolower(request()->action());//当前方法转化成小写
         $no_access = ['uploadcourse', 'simple', 'xy', 'multiple', 'uploadgood', 'uploadteacher', 'getinfofromcourse']; //不需要验证的方法
-
-        if ($uid == 1 || in_array($action, $no_access) || $uid = -999 ) {
+        if ($uid == 1 || in_array($action, $no_access) || $uid == -999 ) {
             //超管用户 不判断权限信息
-        } elseif ($roleid == -1 || $roleid == 0) {
+        }elseif ($roleid == -1 || $roleid == 0) {
             //无访问权限直接代码提示无权限并执行终止
-            exit('无权限操作');
+            JumpLogin();
         } else if ($controller == 'index') {
-
         } else {
             $role_arr = explode(',', $roleid); //权限节点数组
             if (empty($role_arr)) {
-                exit('无权限操作');
+                JumpLogin();
             }
             //$controller = strtolower(request()->controller());//当前控制器转化成小写
             $where = [
@@ -118,10 +119,10 @@ parent.parent.location.href = '" . $url . "';
             $r_id =  PermLogic::getInstance()->getPermId($where); //查找节点id 是否存在
             //无访问权限直接代码提示无权限并执行终止
             if (empty($r_id)) {
-                exit('无权限操作');
+                JumpLogin();
             } else {
                 if (!in_array($r_id, $role_arr)) {
-                    exit('无权限操作');
+                    JumpLogin();
                 }
             }
         }

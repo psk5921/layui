@@ -67,6 +67,7 @@ class LoginLogic  extends BaseLogic
             //设置登录保存信息
             $res = $admin->updateLogin($where, $data);
             if ($res['code'] == 1) {
+
                 session('uid', $user['id'], 'login');//登录用户id
                 session('username', $user['username'], 'login'); //登录用户名
                 session('logincount', $user['logincount'], 'login'); //总登录次数
@@ -78,11 +79,12 @@ class LoginLogic  extends BaseLogic
                 } else {
                     $r_where = ['id' => $user['role_id'], 'status' => 1];
                     if ($role = Db::name('role')->where($r_where)->value('menu_id')) {
-                        session('role_id', $role, 'login'); //当前用户拥有的权限
+                        session('role_id', empty($role)? -1:$role, 'login'); //当前用户拥有的权限
                     } else {
                         session('role_id', $diycode::ROLE_NOT_EXIST[0], 'login'); //信息不存在
                     }
                 }
+
                 $this->is_write = true;
                 $this->database = 'admin';
                 $this->admin_id = session('uid','','login');
